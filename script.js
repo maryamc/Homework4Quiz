@@ -1,31 +1,83 @@
+/* These are questions posed for the quiz itself, which are integrated into the renderQuestion() function */
 var questions = [
   {
     question: "Commonly used data types DO NOT include:",
-    choices: ["strings", "booleans", "alerts", "numbers"],
-    answer: "alerts",
+    choices: ["Strings", "Booleans", "Alerts", "Numbers"],
+    answer: "Alerts",
   },
   {
     question:
       "The condition in an if / else statement is enclosed within ____.",
-    choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
-    answer: "parentheses",
+    choices: ["Quotes", "Curly brackets", "Parentheses", "Square brackets"],
+    answer: "Parentheses",
+  },
+  {
+    question:
+      "Inside of what element in the HTML document do we put the Javascript code?",
+    choices: ["<script>", "<div>", "<head>", "<javascript>"],
+    answer: "<script>",
+  },
+  {
+    question:
+      "This function ______ parses a string argument and returns an integer.",
+    choices: ["return", "function", "parseInt()", "parseFloat()"],
+    answer: "parseInt()",
+  },
+  {
+    question:
+      "Does window.prompt() return a true or false value?",
+    choices: ["True", "False"],
+    answer: "False",
+  },
+  {
+    question:
+      "What value does the === operator return?",
+    choices: ["True", "False"],
+    answer: "True",
+  },
+  {
+    question:
+      "All of the following are Javascript pop-ups, EXCEPT _____.",
+    choices: ["Alert", "Prompt", "Help", "Confirm"],
+    answer: "Help",
+  },
+  {
+    question:
+      "Javascript is _____. ",
+    choices: ["Good", "Tedious", "Objective", "Object based"],
+    answer: "Object based",
+  },
+  {
+    question:
+      "Which of these is the correct way to create a new array?",
+    choices: ["var newArray = {};", "var newArray = [];", "var newArray = ();", "var newArray = newArray[];"],
+    answer: "var newArray = [];",
+  },
+  {
+    question:
+      "What is the purpose of the var statement?",
+    choices: ["Retreive a variable", "Declare an ID element", "Create a new variable", "Decalre a class element"],
+    answer: "Create a new variable",
   },
 ];
 
+/* Creating element variables and using document.querySelector to select the specific IDs corresponding to the variables.
+This is done in order to be able to append the variables to the div */
 var questionEl = document.querySelector("#question");
 var optionListEl = document.querySelector("#option-list");
 var questionResultEl = document.querySelector("#question-result");
 var timerEl = document.querySelector("#timer");
 
+/* These set of variables is for the timer interval that will be displayed while the quiz is in progress */
 var questionIndex = 0;
 var correctCount = 0;
-var time = 20;
+var time = 120;
 var intervalId;
 
 function endQuiz() {
   clearInterval(intervalId);
   var body = document.body;
-  body.innerHTML = "Game over, You scored " + correctCount;
+  body.innerHTML = "Game over, You scored " + correctCount + " points!";
 // wait 2 seconds and call showHighScore;
 setTimeout(showHighScore, 2000);
 }
@@ -107,10 +159,10 @@ function checkAnswer(event) {
   if (event.target.matches("li")) {
     var answer = event.target.textContent;
     if (answer === questions[questionIndex].answer) {
-      questionResultEl.textContent = "Correct";
+      questionResultEl.textContent = "Correct!";
       correctCount++;
     } else {
-      questionResultEl.textContent = "Incorrect";
+      questionResultEl.textContent = "Incorrect!";
       time = time - 2;
       timerEl.textContent = time;
     }
