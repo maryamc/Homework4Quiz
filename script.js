@@ -137,10 +137,13 @@ function renderQuestion() {
   questionResultEl.innerHTML = "";
 
   var choices = questions[questionIndex].choices;
-  var choicesLenth = choices.length;
+  var choicesLength = choices.length;
+  
 
-  for (var i = 0; i < choicesLenth; i++) {
+
+  for (var i = 0; i < choicesLength; i++) {
     var questionListItem = document.createElement("li");
+    
     questionListItem.textContent = choices[i];
     optionListEl.append(questionListItem);
   }
@@ -170,9 +173,9 @@ function checkAnswer(event) {
   setTimeout(nextQuestion, 2000);
 }
 
-// function userInput(){
 
-  
+
+// function userInput(){
 
 //   var userName = document.createElement("input");
 //   userName.setAttribute("placeholder", "name");
