@@ -111,9 +111,12 @@ function showHighScore() {
   for (var i=0; i<high_score.length; i++){
     var contentLi = document.createElement("li");
     contentLi.textContent ="Name: " +high_score[i].name+ " Score: " + high_score[i].score;
+    
   }
 
   document.body.append(contentUl);
+  // redirecting to highscore page to submit initials 
+  window.location.href="highscore.html"
 }
 
 function updateTime() {
