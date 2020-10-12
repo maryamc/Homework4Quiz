@@ -1,5 +1,5 @@
 body {
-    background-color: white;
+    background-color:palevioletred;
 }
 
 #question {
@@ -12,6 +12,7 @@ body {
 ol {
     list-style: none;
     text-align: center;
+    font-size: larger;
 }
 
 
